@@ -1,0 +1,78 @@
+@font-face{font-family:'Inter';font-weight:400;font-style:normal;font-display:swap;src:url('inter-latin-400-normal.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-weight:500;font-style:normal;font-display:swap;src:url('inter-latin-500-normal.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-weight:600;font-style:normal;font-display:swap;src:url('inter-latin-600-normal.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-weight:700;font-style:normal;font-display:swap;src:url('inter-latin-700-normal.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-weight:800;font-style:normal;font-display:swap;src:url('inter-latin-800-normal.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-weight:400;font-style:normal;font-display:swap;src:url('jetbrains-mono-latin-400-normal.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-weight:500;font-style:normal;font-display:swap;src:url('jetbrains-mono-latin-500-normal.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-weight:600;font-style:normal;font-display:swap;src:url('jetbrains-mono-latin-600-normal.woff2') format('woff2');}
+
+:root {
+  /* --- design tokens — see references/design-system.md --- */
+  --bg: #fafafa;              /* page background */
+  --surface: #ffffff;         /* card/panel background */
+  --surface-raised: #f4f4f5;  /* inputs, hover states, anything "on top of" a surface */
+  --border: #e4e4e7;          /* borders, dividers */
+  --accent: #4f46e5;          /* primary accent — buttons, links, focus rings */
+  --accent-hover: #4338ca;    /* accent's hover/pressed state */
+  --danger: #dc2626;          /* errors, destructive actions */
+  --success: #16a34a;         /* confirmations, positive status */
+  --info: #2563eb;            /* secondary status color */
+  --text: #18181b;            /* primary text */
+  --text-muted: #71717a;      /* secondary/muted text */
+
+  /* One font family for everything — weight does the work of telling
+     headings from body text apart, instead of mixing font families. */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Dark theme: same tokens, new values. Everything that uses var(--…) follows. */
+:root[data-theme="dark"] {
+  --bg: #0e0e11;
+  --surface: #18181c;
+  --surface-raised: #232329;
+  --border: #2e2e36;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --danger: #f87171;
+  --success: #4ade80;
+  --info: #60a5fa;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.mono { font-family: var(--font-mono); }
+
+::selection { background: var(--accent); color: #ffffff; }

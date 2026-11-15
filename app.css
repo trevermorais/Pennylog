@@ -1,0 +1,82 @@
+/* App-shell additions on top of the original PennyLog stylesheets. */
+
+:root {
+  --safe-t: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+  --safe-r: max(env(safe-area-inset-right, 0px), var(--safe-area-inset-right, 0px));
+  --safe-b: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px));
+  --safe-l: max(env(safe-area-inset-left, 0px), var(--safe-area-inset-left, 0px));
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; }
+
+/* keep content clear of the status bar / notch / gesture bar */
+.page {
+  padding-top: calc(24px + var(--safe-t));
+  padding-right: calc(18px + var(--safe-r));
+  padding-bottom: calc(40px + var(--safe-b));
+  padding-left: calc(18px + var(--safe-l));
+}
+
+.topbar { gap: 12px; }
+.topbar .brand { text-decoration: none; color: var(--text); }
+.topnav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; font-size: 13px; }
+.topnav a { color: var(--text-muted); }
+
+/* original template used inline styles for these */
+.panel-card { text-align: left; padding: 24px; }
+.lead { color: var(--text-muted); font-size: 13px; line-height: 1.6; margin: 0 0 18px; }
+.empty { color: var(--text-muted); padding: 20px 0; }
+.import-result a { color: inherit; font-weight: 600; }
+
+/* <button> versions of what used to be links in the filter bar */
+.filter-bar button.filter-link { background: none; color: var(--text-muted); font-weight: 400; padding: 0 4px; text-decoration: underline; }
+.filter-bar button.filter-link:hover { background: none; color: var(--text); }
+.filter-bar .filter-export { margin-left: auto; }
+
+.settings-list { display: grid; gap: 10px; }
+.settings-list .auth-submit { border: 0; font-family: var(--font-sans); }
+.settings-list .auth-submit.secondary { border: 1px solid var(--border); }
+.auth-submit.danger { background: transparent; color: var(--danger); border: 1px solid var(--danger) !important; }
+.auth-submit.danger:hover { background: rgba(220, 38, 38, 0.08); }
+.file-btn { cursor: pointer; }
+
+.import-form { flex-wrap: wrap; }
+.import-form button:disabled { opacity: .6; }
+
+.cat-share > span { display: block; }
+
+#toast {
+  position: fixed; left: 50%; bottom: calc(24px + var(--safe-b)); transform: translate(-50%, 20px);
+  max-width: min(90vw, 420px); padding: 11px 16px; border-radius: 10px; font-size: 13px;
+  background: var(--text); color: var(--bg); box-shadow: var(--shadow-md);
+  opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 50;
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* phones: bigger touch targets, and 16px inputs so iOS doesn't zoom the page on focus */
+@media (pointer: coarse) {
+  input, select, textarea { font-size: 16px !important; }
+  .add-form input, .budget-form input, .filter-bar input, .filter-bar select, .auth-field input { padding-top: 12px; padding-bottom: 12px; }
+  .filter-bar button, .budget-form button { min-height: 44px; }
+  .add-form--wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 92px; }
+  .add-form--wrap button.add-btn, .add-form--wrap button.spend-btn { min-height: 46px; }
+  .theme-toggle { width: 38px; height: 38px; }
+  .row-del button { width: 30px; height: 30px; font-size: 20px; top: -13px; right: -10px; }
+  .row-edit { width: 30px; height: 30px; top: -13px; right: 26px; }
+  .row-edit svg { width: 15px; height: 15px; }
+  .expense-row { padding: 14px; }
+}
+
+@media (max-width: 720px) {
+  .page--wide { max-width: 520px; }
+}
+
+/* Rows: category and amount on the first line, note underneath (a long note used to be squeezed into a
+   one-letter-wide column on phones). */
+.expense-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; }
+.expense-category { grid-column: 1; grid-row: 1; overflow-wrap: anywhere; }
+.expense-amount { grid-column: 2; grid-row: 1; white-space: nowrap; }
+.expense-note { grid-column: 1 / -1; grid-row: 2; }
+.expense-note:empty { display: none; }
+.topnav { flex-wrap: nowrap; }
