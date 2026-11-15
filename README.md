@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="www/icon-192.png" width="96" alt="PennyLog icon">
+<img src="icon-192.png" width="96" alt="PennyLog icon">
 
 # PennyLog
 
@@ -27,26 +27,26 @@ No account. No server. No ads. Everything stays on your device.
 
 ---
 
-## ✨ Features
+##  Features
 
 | | |
 |---|---|
-| 📥 **Statement import** | CSV or Excel (`.xlsx`) from Paytm and banks (HDFC, ICICI, SBI, Axis, Kotak and similar). Merchant names are pulled from long narrations; re-importing skips duplicates. |
-| ✍️ **Manual entries** | *Add* for money received, *Spend* for expenses. Edit or delete anything. |
-| 💰 **Balance & cashflow** | Current balance and this month's in/out, in rupees with lakh/crore grouping. |
-| 🗂️ **Categories** | Similar spellings (`Food`, `food `) merge into one, biggest spend first. |
-| 🎯 **Budgets** | Monthly limit per category, with alerts at 80% and 100%. |
-| 💡 **Insights** | Pace vs. the same days last month, biggest spend, biggest movers, recurring payments. |
-| 🔎 **Search & filters** | Search entries, filter by month. |
-| 📤 **Export & backup** | CSV export, plus full backup and restore from Settings. |
-| 🌗 **Dark theme** | Follows your device. |
+|  **Statement import** | CSV or Excel (`.xlsx`) from Paytm and banks (HDFC, ICICI, SBI, Axis, Kotak and similar). Merchant names are pulled from long narrations; re-importing skips duplicates. |
+|  **Manual entries** | *Add* for money received, *Spend* for expenses. Edit or delete anything. |
+|  **Balance & cashflow** | Current balance and this month's in/out, in rupees with lakh/crore grouping. |
+|  **Categories** | Similar spellings (`Food`, `food `) merge into one, biggest spend first. |
+|  **Budgets** | Monthly limit per category, with alerts at 80% and 100%. |
+|  **Insights** | Pace vs. the same days last month, biggest spend, biggest movers, recurring payments. |
+|  **Search & filters** | Search entries, filter by month. |
+|  **Export & backup** | CSV export, plus full backup and restore from Settings. |
+|  **Dark theme** | Follows your device. |
 
-## 🔒 Privacy
+##  Privacy
 
 PennyLog collects nothing and sends nothing anywhere. Entries, budgets and imported files are stored on your device only. No analytics, tracking or third-party services.
 Full text: [PRIVACY.md](PRIVACY.md) · in-app page: [`www/privacy.html`](www/privacy.html)
 
-## 🚀 Quick start
+##  Quick start
 
 ```bash
 npm install
@@ -56,7 +56,7 @@ npm test           # 30 checks, including a comparison against the original Pyth
 
 Or host the contents of `www/` on any static site (GitHub Pages works; the folder has no subfolders on purpose).
 
-## 📦 Publish to the stores
+##  Publish to the stores
 
 | Store | How |
 |---|---|
@@ -66,10 +66,10 @@ Or host the contents of `www/` on any static site (GitHub Pages works; the folde
 
 Step-by-step: [PUBLISHING.md](PUBLISHING.md).
 
-> 💡 After changing anything in `www/`, bump `CACHE` in `www/sw.js` so installed copies update.
+>  After changing anything in `www/`, bump `CACHE` in `www/sw.js` so installed copies update.
 
 <details>
-<summary><b>🗺️ Project layout</b></summary>
+<summary><b> Project layout</b></summary>
 
 ```
 www/                 the whole app: plain HTML / CSS / JS, no build step
@@ -90,7 +90,7 @@ PUBLISHING.md        store publishing guide
 </details>
 
 <details>
-<summary><b>🔁 Coming from the Flask version?</b></summary>
+<summary><b> Coming from the Flask version?</b></summary>
 
 This is a ground-up offline port. Accounts, the database and Gmail sync were removed because they need a server. To carry your data over:
 
@@ -101,7 +101,7 @@ python3 scripts/db_to_backup.py /path/to/pennylog.db --user YOURNAME
 Then in the app: **Settings → Restore from a backup**. Never commit `pennylog.db` or `secret.key`.
 </details>
 
-## ⚠️ Known limits
+##  Known limits
 
 - Bank statement layouts are based on commonly seen formats, not verified real files. If a file is rejected, the error lists the headers it found; add names to `COLUMN_HINTS` in `www/parser.js`.
 - Data lives only on the device, so back it up (Settings) before uninstalling.
