@@ -44,29 +44,7 @@ No account. No server. No ads. Everything stays on your device.
 ##  Privacy
 
 PennyLog collects nothing and sends nothing anywhere. Entries, budgets and imported files are stored on your device only. No analytics, tracking or third-party services.
-Full text: [PRIVACY.md](PRIVACY.md) · in-app page: [`www/privacy.html`](www/privacy.html)
-
-##  Quick start
-
-```bash
-npm install
-npm run serve      # http://localhost:8080
-npm test           # 30 checks, including a comparison against the original Python version
-```
-
-Or host the contents of `www/` on any static site (GitHub Pages works; the folder has no subfolders on purpose).
-
-##  Publish to the stores
-
-| Store | How |
-|---|---|
-| **Microsoft Store** | Host `www/` on HTTPS, then package with [PWABuilder](https://www.pwabuilder.com) |
-| **Google Play** | `npm run open:android`, build a signed App Bundle in Android Studio |
-| **App Store** | Needs a Mac with Xcode: `npm run add:ios`, `npm run open:ios` |
-
-Step-by-step: [PUBLISHING.md](PUBLISHING.md).
-
->  After changing anything in `www/`, bump `CACHE` in `www/sw.js` so installed copies update.
+Full text: [PRIVACY.md](PRIVACY.md)
 
 <details>
 <summary><b> Project layout</b></summary>
